@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url('https://img.freepik.com/vector-gratis/tema-san-valentin-corazones-cielo-rosa_1308-38030.jpg?semt=ais_hybrid&w=740') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #container {
+      background: #DDD;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .reproductor-spotify {
+      max-width: 300px;
+      margin: 0 auto 20px auto;
+      background-color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .info-cancion {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .info-cancion img {
+      width: 80px;
+      height: 80px;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+
+    .detalle-cancion h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .detalle-cancion p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .message {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+      font-size: 28px;
+      color: #d63384;
+      font-weight: bold;
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .message:hover {
+      transform: scale(1.1);
+    }
+
+    #bubbles-text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .text-bubble {
+      position: absolute;
+      font-size: 18px;
+      font-family: 'Cursive', sans-serif;
+      color: #d63384;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 20px;
+      border-radius: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: floatText 8s ease-in-out forwards;
+      white-space: nowrap;
+    }
+
+    @keyframes floatText {
+      0% { opacity: 0; transform: scale(0.5) translateY(0px); }
+      50% { opacity: 1; transform: scale(1.2) translateY(-50px); }
+      100% { opacity: 0; transform: scale(1) translateY(-100px); }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background-size: 100% 100%;
+        background-position: center top;
+      }
+
+      .message { font-size: 24px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="message"> ❤️​25/05/25❤️​</div>
+
+  <div id="container">
+    <div class="reproductor-spotify">
+      <div class="info-cancion">
+        <img src="m.jpg" alt="Portada de la canción">
+        <div class="detalle-cancion">
+          <h3>I Love You My Love❤️</h3>
+        <!--  <p>Artista</p>-->
+        </div>
+      </div>
+      <audio controls autoplay>
+        <source src="audioo.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <div id="bubbles-text"></div>
+
+  <script>
+    const messages = [
+  "Te amo muchísimo ❤️",
+  "Gracias por estar en mi vida 🌟",
+  "Eres mi persona favorita 💕",
+  "Juntos por siempre 🥰",
+  "Tú y yo, para siempre 💖",
+  "Tu sonrisa me ilumina 💫",
+  "Eres lo mejor que me ha pasado 😍",
+  "Cada momento contigo es mágico ✨",
+  "Siempre pienso en ti 💭",
+  "Mi corazón es tuyo 💘",
+  "Contigo todo es mejor 💗",
+  "Abrazarte es mi lugar favorito 🤗",
+  "Eres mi paz en este mundo loco 🌈",
+  "Me haces muy feliz 💞",
+  "Tu voz es mi canción favorita 🎶",
+  "Eres mi razón de sonreír 😊",
+  "Contigo se me olvida el mundo 🌍",
+  "Te pienso a cada instante ⏳",
+  "Eres mi hogar 🏡",
+  "Amarte es lo más bonito que me ha pasado 💓",
+  "Eres mi sueño hecho realidad 🌠",
+  "Contigo, todo tiene sentido 🔐",
+  "No me canso de decirte cuánto te amo 💌",
+  "Siempre serás mi persona especial 🌹",
+  "Tu amor es mi mayor tesoro 💎",
+  "Quiero envejecer contigo 👵👴",
+  "Eres mi todo 💯",
+  "Tú eres mi sol en días grises ☀️",
+  "Nunca dejes de sonreír 😄",
+  "Me haces sentir completo 🧩",
+  "Tu amor me hace fuerte 💪",
+  "Cada latido es por ti ❤️",
+  "Te amo más de lo que puedo expresar ✍️",
+  "Contigo aprendí lo que es el amor verdadero 💖",
+  "Tú haces que mi vida brille ✨",
+  "Siempre quiero estar a tu lado 💑",
+  "Gracias por existir 🙏",
+  "Tú eres el amor que siempre soñé 🌙",
+  "Solo tú me haces sentir así 💓",
+  "Tu risa es mi melodía favorita 🎵",
+  "Amarte es tan fácil como respirar 🌬️",
+  "Eres mi lugar feliz 🛋️",
+  "Estoy loco/a por ti 🤯❤️",
+  "A tu lado todo es perfecto 🎇",
+  "Tú y yo, un solo corazón ❤️‍🔥",
+  "Eres mi inspiración diaria 📝",
+  "Nunca me sueltes 🤝",
+  "Quiero mil vidas contigo ♾️",
+  "No puedo imaginarme sin ti ❌💔",
+  "Te extraño incluso cuando estás cerca 😢❤️",
+  "Mi mundo empieza contigo 🌎",
+  "Amar es fácil cuando se trata de ti 😍",
+  "Tú eres mi destino 🧭",
+  "En tus ojos encuentro mi hogar 👀🏡",
+  "Tu amor me salva cada día 🚑❤️",
+  "Juntos somos invencibles 🛡️",
+  "Eres mi historia favorita 📖",
+  "Te amo con cada parte de mí 🧠💓",
+  "El amor verdadero tiene tu nombre ✒️",
+  "Tu ternura me derrite 🧸",
+  "Eres mi todo y más ✨💫",
+  "Siempre serás mi primero y último amor 💍",
+  "Amarte no tiene final 🌀",
+  "Tu amor me da vida 💓🌱",
+  "Contigo aprendí a volar 🕊️",
+  "Eres mi luna en la noche más oscura 🌕",
+  "Te elijo cada día 💘",
+  "Siempre serás mi mejor decisión ✅",
+  "Amo cómo me miras 😍",
+  "Gracias por hacerme sentir especial 🌟",
+  "Tu amor es mi refugio 🛡️",
+  "Estar contigo es mi mayor alegría 🎉",
+  "Cada segundo contigo vale oro ⏰💛",
+  "Solo tú tienes la llave de mi corazón 🔐",
+  "Nada se compara a ti 🌺",
+  "Tú me haces mejor persona 💎",
+  "En tus brazos me siento en casa 🤗",
+  "Tú eres mi persona para siempre ⛅",
+  "Nuestro amor no tiene límites 🚀",
+  "Tu amor me hace volar ✈️❤️",
+  "Gracias por tu amor incondicional 🙌❤️",
+  "Te amo más allá de las palabras 🗣️❤️",
+  "Nunca había sentido algo así 💫",
+  "Eres mi motor cada día 🔋",
+  "Mi felicidad empieza contigo 😊❤️",
+  "Siempre serás mi gran amor 🥇",
+  "Por ti lo doy todo 💝",
+  "Amar contigo es mi aventura favorita 🧭",
+  "Te amo con locura y ternura 🤪💓",
+  "Tú me haces creer en los milagros ✨",
+  "Tu amor es mi fortaleza 🧱💓",
+  "No hay nadie como tú 🔥",
+  "Contigo quiero todos mis futuros 📆",
+  "Tu amor es el mejor regalo 🎁",
+  "Gracias por enseñarme a amar ❤️📚",
+  "Eres mi ángel de la guarda 👼",
+  "Siempre querré estar contigo 💍",
+  "Tú haces que mi corazón cante 🎶❤️",
+  "Nuestro amor es eterno 🌌",
+  "Tú y yo somos poesía 📜❤️",
+  "Eres mi día favorito del calendario 🗓️❤️",
+  "Amarte es mi superpoder 🦸❤️",
+  "Eres mi bendición diaria 🙏💓",
+  "Por siempre tú, por siempre yo 💕♾️",
+  "Eres el mejor capítulo de mi vida 📖💘"
+];
+
+
+    function createTextBubble() {
+      const bubble = document.createElement("div");
+      bubble.className = "text-bubble";
+      bubble.innerText = messages[Math.floor(Math.random() * messages.length)];
+      bubble.style.left = Math.random() * 80 + 10 + "vw";
+      bubble.style.top = Math.random() * 80 + 10 + "vh";
+      document.getElementById("bubbles-text").appendChild(bubble);
+
+      setTimeout(() => {
+        bubble.remove();
+      }, 4000); // Borrar después de 8 segundos (coincide con animación)
+    }
+
+    // Crear burbujas continuamente
+    setInterval(createTextBubble, 1500);
+  </script>
+</body>
+</html>
